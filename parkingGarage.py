@@ -1,27 +1,25 @@
 class Ticket:
 
-    def __init__(self, tickets):
-        self.tickets = [x + 1 for x in range(10)]
+    def __init__(self):
+        self.tickets = [x + 1 for x in range(11)]
         self.current = {}
 
-    def sell(self, tickes):
-        tickets = self.tickets.pop(0)
-        self.current[tickets] = 'Unpaid'
-        return f"Here's your ticket {tickets}"
+    def sell(self):
+        tickets = []
+        tickets.append(self.tickets.pop(0))
+        if self.tickets != None:
+            for i in range(len(tickets)):
+                self.current[tickets[i]] = 'Unpaid'
+            return f"Here's your ticket {tickets}"
+        else:
+            return "No more room in this lot."
+        sorted(self.tickets)
 
     def pay(self):
         x = input("which ticket is yours? ")
         self.current[x] = 'Paid'
         return f"You're all paid up!"
 
-
-        # for key, value:
-        #     key = i
-        #     value = j
-        # self.tickets.append(i)
-        # self.spaces.append(j)
-        # self.current.del[i] = j
-        # return
 
     def leave(self, tickets):
         self.tickets = tickets
@@ -32,17 +30,19 @@ class Ticket:
 
 class Test:
 
-    def main(self):
-
-        def leave(self, tickets):
-            self.tickets = input("What ticket are you returning? ")
-        user_input = input()
-        ticket = Ticket()
-        ticket.sell()
+    def main():
+        t.sell()
+        print(t.tickets)
+        print(t.current)
 
 
-test = Test()
-# test.main()
-Ticket()
-myticket = Ticket()
-myticket.pay()
+    def leave(self):
+        pass
+        self.tickets = input("What ticket are you returning? ")
+        
+        
+
+
+
+t = Ticket()
+Test.main()
