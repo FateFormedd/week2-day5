@@ -29,20 +29,6 @@ class Ticket:
         del self.current[x]
         return "Have a great drive!"
 
-        
-
-# - takeTicket
-# - This should decrease the amount of tickets available by 1
-# - This should decrease the amount of parkingSpaces available by 1
-# - Update tickets list to increase by 1 (meaning add to the tickets list)
-# class Garage:
-#     def __init__(self):
-
-# class Spaces:
-#     def __init__(self):
-#         self.spaces = []
-#             return
-
 
 class Test:
 
