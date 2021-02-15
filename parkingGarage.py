@@ -1,48 +1,53 @@
-class Ticket:
+class Ticket():
 
-    def __init__(self):
-        self.tickets = [x + 1 for x in range(11)]
-        self.current = {}
+    parking_tickets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    paid_tickets = []
+    my_ticket = []
 
-    def sell(self):
-        tickets = []
-        tickets.append(self.tickets.pop(0))
-        if self.tickets != None:
-            for i in range(len(tickets)):
-                self.current[tickets[i]] = 'Unpaid'
-            return f"Here's your ticket {tickets}"
+    def take():
+        if not Ticket.parking_tickets:
+            print("No more spots left.")
         else:
-            return "No more room in this lot."
-        sorted(self.tickets)
+            new_value = Ticket.parking_tickets.pop(0)
+            Ticket.my_ticket.append(new_value)
+            print(f"Here's your ticket! It's number {new_value}")
 
-    def pay(self):
-        x = input("which ticket is yours? ")
-        self.current[x] = 'Paid'
-        return f"You're all paid up!"
+    def pay():
+        num = int(input("What's your ticket nubmer?"))
+        if num in Ticket.paid_tickets:
+            print("You have already paid")
+        else:
+            Ticket.paid_tickets.append(num)
+            Ticket.my_ticket.remove(num)
+            print("You're all paid up!")
+
+    def leave():
+        num = int(input("What's your ticket number? "))
+        if num in Ticket.paid_tickets:
+            Ticket.paid_tickets.remove(num)
+            Ticket.parking_tickets.append(num)
+            print("Have a great drive!")
+            
+        else:
+            print("Please pay for your ticket before you leave.")
 
 
-    def leave(self, tickets):
-        self.tickets = tickets
-        self.tickets.append(self.tickets)
-        del self.current[self.tickets]
-        return "Have a great drive!"
-
-
-class Test:
-
-    def main():
-        t.sell()
-        print(t.tickets)
-        print(t.current)
-
-
-    def leave(self):
-        pass
-        self.tickets = input("What ticket are you returning? ")
+def sale():
+    
+    
+    while True:
+        t = input("Would you like to take a ticket, pay for your ticket, or leave? ").lower()
         
-        
+        if t == 'take':
+            Ticket.take()
 
-
-
-t = Ticket()
-Test.main()
+        elif t == 'pay':
+            Ticket.pay()
+            
+        elif t == 'leave':
+            Ticket.leave()
+            
+        else:
+            print("That's not a valid input.")
+            
+sale()
